@@ -194,13 +194,32 @@ LoadPup/
 
 ### 环境变量配置
 
-```bash
-# 设置默认的tokenizer路径
-export TOKENIZER_PATH="/path/to/your/tokenizer"
+LoadPup 支持通过命令行参数配置所有选项，无需设置环境变量。主要参数如下：
 
-# 设置默认输出目录
-export OUTPUT_DIR="/path/to/output"
-```
+### OpenAI 压测参数说明
+
+| 参数名 | 是否必需 | 默认值 | 说明 |
+|--------|----------|--------|------|
+| base_url | 是 | - | OpenAI API的基础URL |
+| model | 是 | - | 要测试的模型名称 |
+| parallel | 是 | - | 并发数，支持单个数字或分号分隔的多个数字 |
+| prompt_length | 否 | 500 | 输入prompt的token长度 |
+| output_length | 否 | 200 | 期望输出的token长度 |
+| temperature | 否 | 0.7 | 模型温度参数 |
+| tokenizer_path | 否 | - | 分词器路径，不传则使用字符数估算token数 |
+| output_dir | 否 | output/openai | 测试结果输出目录 |
+
+### Dify 压测参数说明
+
+| 参数名 | 是否必需 | 默认值 | 说明 |
+|--------|----------|--------|------|
+| api_url | 是 | - | Dify API的完整URL |
+| api_key | 是 | - | Dify API密钥 |
+| parallel | 是 | - | 并发数，支持单个数字或分号分隔的多个数字 |
+| query_file | 否 | - | 包含查询内容的文件路径 |
+| total_requests | 否 | parallel*10 | 总请求数 |
+| tokenizer_path | 否 | - | 分词器路径，不传则使用字符数估算token数 |
+| output_dir | 否 | output/dify | 测试结果输出目录 |
 
 ### 批量测试脚本
 

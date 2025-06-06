@@ -81,7 +81,7 @@ class OpenAIBenchmark(BenchmarkBase):
             "api": "openai",
             
             "dataset": "random",
-            "tokenizer_path": self.config.get('tokenizer_path', 'Qwen/Qwen2-7B-Instruct'),
+            "tokenizer_path": self.config.get('tokenizer_path', None),  # 不传则使用字符数估算
             "max_prompt_length": prompt_length,
             "min_prompt_length": prompt_length,
             "max_tokens": output_length,
