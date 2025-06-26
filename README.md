@@ -71,7 +71,7 @@ pip install evalscope
 ```bash
 # 基础压测
 python loadpup/cli.py openai \
-  --base_url "https://api.openai.com/v1" \
+  --base_url "https://api.openai.com/v1/chat/completions" \
   --model "gpt-3.5-turbo" \
   --parallel "1;2;4" \
   --prompt_length 500 \
@@ -79,7 +79,7 @@ python loadpup/cli.py openai \
 
 # 详细配置
 python loadpup/cli.py openai \
-  --base_url "https://your-api.com/v1" \
+  --base_url "https://your-api.com/v1/chat/completions" \
   --model "your-model" \
   --parallel "1;2;4;8" \
   --prompt_length 1000 \
@@ -146,7 +146,7 @@ LoadPup生成两种格式的详细报告：
   "P99延迟(s)": 6.23,
   "P99首token延迟(s)": 1.67,
   "P99单token延迟(s)": 0.021,
-  "API URL": "https://api.openai.com/v1",
+  "API URL": "https://api.openai.com/v1/chat/completions",
   "温度": 0.7,
   "流式输出": true
 }
@@ -229,7 +229,7 @@ LoadPup 支持通过命令行参数配置所有选项，无需设置环境变量
 
 # OpenAI测试
 python loadpup/cli.py openai \
-  --base_url "https://api.openai.com/v1" \
+  --base_url "https://api.openai.com/v1/chat/completions" \
   --model "gpt-3.5-turbo" \
   --parallel "1;2;4;8" \
   --output_dir "comparison/openai"
@@ -289,7 +289,7 @@ python loadpup/cli.py dify \
 ```bash
 # 启用详细日志
 python loadpup/cli.py openai --debug \
-  --base_url "https://api.openai.com/v1" \
+  --base_url "https://api.openai.com/v1/chat/completions" \
   --model "gpt-3.5-turbo" \
   --parallel "1"
 ```
