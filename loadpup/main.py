@@ -196,5 +196,6 @@ def create_dify_config(args) -> Dict[str, Any]:
         'query_file': getattr(args, 'query_file', None),
         'total_requests': getattr(args, 'total_requests', args.parallel * 10),
         'tokenizer_path': getattr(args, 'tokenizer_path', './tokenizer_dir'),
+        "inputs_json_path": args.inputs_json_path,
         'output_dir': args.output_dir
     } 

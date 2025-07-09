@@ -60,10 +60,12 @@ class DifyBenchmark(BenchmarkBase):
         self.total_token_latency = 0
         self.lock = threading.Lock()  # 添加线程锁
         self.request_details = []  # 存储每个请求的详细信息
+        self.inputs = {}
         
         # 加载查询数据和tokenizer
         self._load_queries()
         self._load_tokenizer()
+        self._load_inputs()
     
     def get_benchmark_type(self) -> str:
         return "dify"
@@ -100,6 +102,13 @@ class DifyBenchmark(BenchmarkBase):
             ]
             self.logger.info("使用默认查询数据")
     
+    def _load_inputs(self):
+        filename = self.config.get("inputs_json_path")
+        if filename and os.path.exists(filename):
+            with open(filename, "r") as f:
+                self.inputs = json.load(f)
+                self.logger.info(f"载入配置文件：{filename}")
+
     def _load_tokenizer(self):
         """加载tokenizer"""
         if AutoTokenizer is None:
@@ -130,7 +139,7 @@ class DifyBenchmark(BenchmarkBase):
         input_tokens = self._count_tokens(query)
         
         payload = {
-            "inputs": {},
+            "inputs": self.inputs,
             "query": query,
             "response_mode": "streaming",
             "conversation_id": "",
