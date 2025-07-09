@@ -172,6 +172,10 @@ def setup_dify_parser(subparsers):
         default='output/dify',
         help='测试结果输出目录，默认output/dify'
     )
+    dify_parser.add_argument(
+        '--inputs_json_path',
+        help="json形式保存的inputs参数"
+    )
     
     return dify_parser
 
