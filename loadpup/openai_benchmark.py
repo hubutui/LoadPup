@@ -79,7 +79,7 @@ class OpenAIBenchmark(BenchmarkBase):
             "model": self.config['model'],
             "number": parallel * 10,  # 总请求数为并发数的10倍
             "api": "openai",
-            
+            "api_key": self.config['api_key'],
             "dataset": "random",
             "tokenizer_path": self.config.get('tokenizer_path', None),  # 不传则使用字符数估算
             "max_prompt_length": prompt_length,

@@ -79,6 +79,10 @@ def setup_openai_parser(subparsers):
         help='要测试的模型名称，如: gpt-3.5-turbo'
     )
     openai_parser.add_argument(
+        '--api_key',
+        help='api key'
+    )
+    openai_parser.add_argument(
         '--parallel', 
         required=True,
         help='并发数，支持单个数字(如"4")或多个数字用分号分隔(如"1;2;4")'

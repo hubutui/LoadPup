@@ -208,6 +208,7 @@ LoadPup 支持通过命令行参数配置所有选项，无需设置环境变量
 | temperature | 否 | 0.7 | 模型温度参数 |
 | tokenizer_path | 否 | - | 分词器路径，不传则使用字符数估算token数 |
 | output_dir | 否 | output/openai | 测试结果输出目录 |
+| api_key | 否 | - | API key |
 
 ### Dify 压测参数说明
 
