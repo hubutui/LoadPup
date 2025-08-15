@@ -165,6 +165,7 @@ def create_openai_config(args) -> Dict[str, Any]:
     return {
         'benchmark_type': 'openai',
         'base_url': args.base_url,
+        'api_key': args.api_key,
         'model': args.model,
         'parallel': args.parallel,
         'prompt_length': args.prompt_length,
