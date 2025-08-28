@@ -236,7 +236,9 @@ class DifyBenchmark(BenchmarkBase):
         self.start_time = time.time()
         
         parallel = self.config.get('parallel', 10)
-        total_requests = self.config.get('total_requests', parallel * 10)
+        total_requests = self.config.get('total_requests')
+        if not total_requests:
+            total_requests = parallel * 10
         
         self.logger.info(f"开始Dify压测，并发数: {parallel}, 总请求数: {total_requests}")
         
