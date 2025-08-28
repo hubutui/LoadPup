@@ -324,9 +324,6 @@ def run_dify_benchmark(args) -> bool:
         configs = []
         for parallel in parallel_list:
             args.parallel = parallel
-            # 如果没有指定total_requests，设置为并发数的10倍
-            if not hasattr(args, 'total_requests') or args.total_requests is None:
-                args.total_requests = parallel * 10
             config = create_dify_config(args)
             configs.append(config)
         
